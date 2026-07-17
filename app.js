@@ -89,27 +89,41 @@ window.deleteStory = function(index) {
     renderStories();
 };
 
-// 7. Search and Filter Logic
-if (searchBar) {
-    searchBar.addEventListener('input', function(e) {
-        const searchText = e.target.value.toLowerCase();
-        const storyCards = document.querySelectorAll('.story-card');
+// 7. Combined Search and Genre Filter Logic
+const filterGenreInput = document.getElementById('filter-genre');
 
-        storyCards.forEach(card => {
-            const h3Element = card.querySelector('h3');
-            const pElement = card.querySelector('p');
+function applyFilters() {
+    const searchText = searchBar.value.toLowerCase();
+    const selectedGenre = filterGenreInput.value;
+    const storyCards = document.querySelectorAll('.story-card');
 
-            // Fallback check if elements exist inside the card
-            const title = h3Element ? h3Element.textContent.toLowerCase() : '';
-            const notes = pElement ? pElement.textContent.toLowerCase() : '';
+    storyCards.forEach((card, index) => {
+        // Find the story object in our array that matches this card's order
+        const story = stories[index];
+        if (!story) return;
 
-            if (title.includes(searchText) || notes.includes(searchText)) {
-                card.style.display = 'flex'; // Shows card
-            } else {
-                card.style.display = 'none'; // Hides card
-            }
-        });
+        // Check if card matches Search text
+        const matchesSearch = story.title.toLowerCase().includes(searchText) || 
+                              story.notes.toLowerCase().includes(searchText);
+
+        // Check if card matches Selected Genre dropdown
+        const matchesGenre = (selectedGenre === 'All') || (story.genre === selectedGenre);
+
+        // ONLY show the card if it meets BOTH criteria!
+        if (matchesSearch && matchesGenre) {
+            card.style.display = 'flex';
+        } else {
+            card.style.display = 'none';
+        }
     });
+}
+
+// Listen for both typing (input) and dropdown selection updates (change)
+if (searchBar) {
+    searchBar.addEventListener('input', applyFilters);
+}
+if (filterGenreInput) {
+    filterGenreInput.addEventListener('change', applyFilters);
 }
 
 // 8. Initial draw of the board on page load

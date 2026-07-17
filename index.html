@@ -60,9 +60,17 @@
         <section class="display-section">
             <h2>Your Content Board</h2>
 
-            <!-- ADD THIS SEARCH BAR GROUP -->
-            <div class="search-group">
+            <!-- Upgraded Search & Filter Controls -->
+            <div class="controls-group">
                 <input type="text" id="search-bar" placeholder="🔍 Search by title or notes...">
+                
+                <select id="filter-genre">
+                    <option value="All">All Genres</option>
+                    <option value="Stoicism & Philosophy">Stoicism & Philosophy</option>
+                    <option value="Mystery & Thriller">Mystery & Thriller</option>
+                    <option value="Sci-Fi & Future">Sci-Fi & Future</option>
+                    <option value="Historical Drama">Historical Drama</option>
+                </select>
             </div>
 
             <div id="story-grid" class="story-grid">
