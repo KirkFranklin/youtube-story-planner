@@ -1,4 +1,3 @@
-/* Custom properties for a modern dark/purple theme */
 :root {
     --bg-color: #0f0f1a;
     --card-bg: #16162a;
@@ -89,6 +88,12 @@ header p {
     border-color: var(--accent-color);
 }
 
+/* Custom file input styling */
+.input-group input[type="file"] {
+    padding: 8px;
+    cursor: pointer;
+}
+
 #add-btn {
     width: 100%;
     background-color: var(--accent-color);
@@ -119,15 +124,14 @@ header p {
     gap: 20px;
 }
 
-/* Individual Card Styling */
+/* Upgraded Card Styling */
 .story-card {
     background-color: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 10px;
-    padding: 20px;
+    overflow: hidden; /* To ensure thumbnail stays rounded inside card */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: transform 0.2s ease;
 }
@@ -136,11 +140,26 @@ header p {
     transform: translateY(-5px);
 }
 
-.card-header {
+/* Card Thumbnail Styling */
+.card-image {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.card-body {
+    padding: 20px;
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card-tags {
+    display: flex;
+    gap: 8px;
     margin-bottom: 12px;
+    flex-wrap: wrap;
 }
 
 .card-genre {
@@ -151,6 +170,19 @@ header p {
     font-size: 0.75rem;
     font-weight: bold;
 }
+
+/* Color codes for Status Tags */
+.status-tag {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.status-tag.Idea { background-color: #1e3a8a; color: #93c5fd; }
+.status-tag.Scripting { background-color: #854d0e; color: #fde047; }
+.status-tag.Recording { background-color: #065f46; color: #6ee7b7; }
 
 .story-card h3 {
     font-size: 1.2rem;
@@ -163,7 +195,6 @@ header p {
     font-size: 0.95rem;
     line-height: 1.4;
     margin-bottom: 20px;
-    flex-grow: 1;
 }
 
 .delete-btn {
@@ -175,6 +206,7 @@ header p {
     cursor: pointer;
     font-weight: bold;
     transition: all 0.3s ease;
+    margin-top: auto; /* Pushes button to bottom of the card content area */
     align-self: flex-start;
 }
 

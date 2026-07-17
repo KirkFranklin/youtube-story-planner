@@ -31,6 +31,22 @@
                     </select>
                 </div>
 
+                <!-- NEW: Status Selector -->
+                <div class="input-group">
+                    <label for="story-status">Production Status</label>
+                    <select id="story-status">
+                        <option value="Idea">💡 Idea / Brainstorming</option>
+                        <option value="Scripting">✍️ Scripting</option>
+                        <option value="Recording">🎙️ Ready to Record</option>
+                    </select>
+                </div>
+
+                <!-- NEW: Thumbnail Upload -->
+                <div class="input-group">
+                    <label for="story-thumbnail">Thumbnail Concept (Optional)</label>
+                    <input type="file" id="story-thumbnail" accept="image/*">
+                </div>
+
                 <div class="input-group">
                     <label for="story-notes">Brief Plot / Hook Note</label>
                     <textarea id="story-notes" placeholder="Write down the hook or key message..." rows="3" required></textarea>
