@@ -11,6 +11,22 @@ const searchBar = document.getElementById('search-bar');
 // 2. Initialize our application state from localStorage
 let stories = JSON.parse(localStorage.getItem('savedStories')) || [];
 
+// Helper to update the dashboard stats dynamically
+function updateStats() {
+    const total = stories.length;
+    
+    // Count occurrences of each status using JavaScript array filter
+    const ideaCount = stories.filter(story => story.status === 'Idea').length;
+    const scriptingCount = stories.filter(story => story.status === 'Scripting').length;
+    const recordingCount = stories.filter(story => story.status === 'Recording').length;
+
+    // Inject the numbers into the HTML
+    document.getElementById('stat-total').textContent = total;
+    document.getElementById('stat-idea').textContent = ideaCount;
+    document.getElementById('stat-scripting').textContent = scriptingCount;
+    document.getElementById('stat-recording').textContent = recordingCount;
+}
+
 // 3. Render all existing stories from our database on startup
 function renderStories() {
     // Clear out the grid first to avoid duplicating cards
@@ -142,3 +158,4 @@ if (filterGenreInput) {
 
 // 8. Initial draw of the board on page load
 renderStories();
+updateStats();
