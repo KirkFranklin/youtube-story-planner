@@ -171,13 +171,25 @@ header p {
     font-weight: bold;
 }
 
-/* Color codes for Status Tags */
-.status-tag {
+/* Inline Status Dropdown Styling */
+.status-dropdown {
     padding: 4px 8px;
     border-radius: 4px;
     font-size: 0.75rem;
     font-weight: bold;
     color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.status-dropdown.Idea { background-color: #1e3a8a; color: #93c5fd; }
+.status-dropdown.Scripting { background-color: #854d0e; color: #fde047; }
+.status-dropdown.Recording { background-color: #065f46; color: #6ee7b7; }
+
+.status-dropdown:hover {
+    filter: brightness(1.2);
 }
 
 .status-tag.Idea { background-color: #1e3a8a; color: #93c5fd; }

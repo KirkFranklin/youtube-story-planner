@@ -23,13 +23,17 @@ function renderStories() {
         // Check if there is an image.
         const imageHTML = story.thumbnail ? `<img src="${story.thumbnail}" class="card-image" alt="${story.title}">` : '';
 
-        // Notice the distinct classes: .card-body, .card-tags, h3, p
+        // We replaced the static status-tag span with an interactive select element
         storyCard.innerHTML = `
             ${imageHTML}
             <div class="card-body">
                 <div class="card-tags">
                     <span class="card-genre">${story.genre}</span>
-                    <span class="status-tag ${story.status}">${story.status}</span>
+                    <select class="status-dropdown ${story.status}" onchange="updateStoryStatus(${index}, this.value)">
+                        <option value="Idea" ${story.status === 'Idea' ? 'selected' : ''}>💡 Idea</option>
+                        <option value="Scripting" ${story.status === 'Scripting' ? 'selected' : ''}>✍️ Scripting</option>
+                        <option value="Recording" ${story.status === 'Recording' ? 'selected' : ''}>🎙️ Ready</option>
+                    </select>
                 </div>
                 <h3>${story.title}</h3>
                 <p>${story.notes}</p>
@@ -85,6 +89,16 @@ function createAndSaveStory(imageString) {
 // 6. Delete Story function (Declared globally)
 window.deleteStory = function(index) {
     stories.splice(index, 1);
+    saveToLocalStorage();
+    renderStories();
+};
+
+// 6.5 Update Story Status directly from the card
+window.updateStoryStatus = function(index, newStatus) {
+    // Update the status of the specific story in our state array
+    stories[index].status = newStatus;
+    
+    // Save to database & refresh screen
     saveToLocalStorage();
     renderStories();
 };
