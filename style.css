@@ -319,3 +319,38 @@ header p {
         gap: 10px;
     }
 }
+
+/* Board Header & Clear Button Styling */
+.board-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.clear-btn {
+    background-color: transparent;
+    border: 1px solid #ef4444;
+    color: #ef4444;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.clear-btn:hover {
+    background-color: #ef4444;
+    color: #ffffff;
+    box-shadow: 0 0 12px rgba(239, 68, 68, 0.3);
+}
+
+/* Make it look neat on mobile screens */
+@media (max-width: 600px) {
+    .board-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}

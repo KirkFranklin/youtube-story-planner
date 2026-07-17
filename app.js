@@ -156,6 +156,23 @@ if (filterGenreInput) {
     filterGenreInput.addEventListener('change', applyFilters);
 }
 
+// 7.5 Wiping the Board State Clean
+window.clearEntireBoard = function() {
+    // Show a native browser confirmation dialog to prevent accidents
+    const userConfirmed = confirm("Are you absolutely sure you want to clear your entire content board? This cannot be undone.");
+    
+    if (userConfirmed) {
+        // Clear out our global application state array
+        stories = [];
+        
+        // Push the empty state to localStorage to clear the browser database
+        saveToLocalStorage();
+        
+        // Re-render the application (wipes cards and drops stats to 0)
+        renderStories();
+    }
+};
+
 // 8. Initial draw of the board on page load
 renderStories();
 updateStats();
