@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Storytelling Planner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎥 YouTube Storytelling Planner</h1>
+            <p>Draft your next viral, faceless video concept</p>
+        </header>
+
+        <!-- Form to Add a New Story Idea -->
+        <section class="form-section">
+            <form id="story-form">
+                <div class="input-group">
+                    <label for="story-title">Video Title Idea</label>
+                    <input type="text" id="story-title" placeholder="e.g., The Stoic Mindset That Destroys Fear..." required>
+                </div>
+
+                <div class="input-group">
+                    <label for="story-genre">Genre / Theme</label>
+                    <select id="story-genre">
+                        <option value="Stoicism & Philosophy">Stoicism & Philosophy</option>
+                        <option value="Mystery & Thriller">Mystery & Thriller</option>
+                        <option value="Sci-Fi & Future">Sci-Fi & Future</option>
+                        <option value="Historical Drama">Historical Drama</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="story-notes">Brief Plot / Hook Note</label>
+                    <textarea id="story-notes" placeholder="Write down the hook or key message..." rows="3" required></textarea>
+                </div>
+
+                <button type="submit" id="add-btn">Add Story Idea 🚀</button>
+            </form>
+        </section>
+
+        <!-- Grid to Display Saved Story Cards -->
+        <section class="display-section">
+            <h2>Your Content Board</h2>
+            <div id="story-grid" class="story-grid">
+                <!-- Dynamic story cards will go here via JavaScript -->
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
