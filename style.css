@@ -214,3 +214,25 @@ header p {
     background-color: var(--danger-color);
     color: white;
 }
+
+/* Search Bar Styling */
+.search-group {
+    margin-bottom: 20px;
+}
+
+#search-bar {
+    width: 100%;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: var(--text-color);
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#search-bar:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.2);
+}
