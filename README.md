@@ -2,7 +2,7 @@
 
 A persistent, responsive web application designed for content creators to brainstorm, organize, and track the production status of faceless video concepts. 
 
- **[Click Here to Launch the Live Web App](https://KirkFranklin.github.io/youtube-story-planner/)
+[Click Here to Launch the Live Web App](https://KirkFranklin.github.io/youtube-story-planner/)
 ---
 
 ## Features
